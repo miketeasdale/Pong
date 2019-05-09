@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="Shader" id=1]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 512, 8 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 4, 288 )
+
+[node name="Field" type="Node2D"]
+material = SubResource( 2 )
+
+[node name="TopWall" type="Polygon2D" parent="."]
+editor/display_folded = true
+color = Color( 0.564706, 0.572549, 1, 1 )
+polygon = PoolVector2Array( 0, 0, 1024, 0, 1024, 16, 0, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="Area2D" parent="TopWall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall/Area2D"]
+position = Vector2( 512, 8 )
+shape = SubResource( 3 )
+
+[node name="BottomWall" type="Polygon2D" parent="."]
+editor/display_folded = true
+position = Vector2( 0, 584 )
+color = Color( 0.564706, 0.572549, 1, 1 )
+polygon = PoolVector2Array( 0, 0, 1024, 0, 1024, 16, 0, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="Area2D" parent="BottomWall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall/Area2D"]
+position = Vector2( 512, 8 )
+shape = SubResource( 3 )
+
+[node name="NetLine" type="Polygon2D" parent="."]
+position = Vector2( 512, 163.917 )
+scale = Vector2( 1, 1.47917 )
+polygon = PoolVector2Array( 8, -100, -8, -100, -8, 284, 8, 284 )
+
+[node name="LeftGoal" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 4, 300 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftGoal"]
+shape = SubResource( 4 )
+
+[node name="RightGoal" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 1020, 300 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightGoal"]
+shape = SubResource( 4 )
+
