@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ball1.png-75c862ab61fbf3d89b16557cd4ed94e8.stex"
+path="res://.import/puzzleGraphics3.png-c95ee9f7946789a24870f8ff927e853d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Graphics/ball1.png"
-dest_files=[ "res://.import/ball1.png-75c862ab61fbf3d89b16557cd4ed94e8.stex" ]
+source_file="res://Assets/Graphics/puzzleGraphics3.png"
+dest_files=[ "res://.import/puzzleGraphics3.png-c95ee9f7946789a24870f8ff927e853d.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

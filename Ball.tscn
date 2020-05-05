@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Ball.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Graphics/ball1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Graphics/puzzleGraphics3.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 11.032
 
 [node name="Ball" type="Node2D"]
-position = Vector2( 460, 220 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -14,10 +14,11 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 226.743, 413.761, 22.4896, 22.4896 )
 
 [node name="BallArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BallArea"]
 shape = SubResource( 1 )
-
 [connection signal="area_entered" from="BallArea" to="." method="_on_BallArea_area_entered"]
