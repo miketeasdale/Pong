@@ -15,21 +15,19 @@ extents = Vector2( 4, 288 )
 material = SubResource( 2 )
 
 [node name="TopWall" type="Polygon2D" parent="."]
-editor/display_folded = true
 color = Color( 0.564706, 0.572549, 1, 1 )
 polygon = PoolVector2Array( 0, 0, 1024, 0, 1024, 16, 0, 16 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Area2D" type="Area2D" parent="TopWall"]
+[node name="TopWallArea" type="Area2D" parent="TopWall"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall/TopWallArea"]
 position = Vector2( 512, 8 )
 shape = SubResource( 3 )
 
 [node name="BottomWall" type="Polygon2D" parent="."]
-editor/display_folded = true
 position = Vector2( 0, 584 )
 color = Color( 0.564706, 0.572549, 1, 1 )
 polygon = PoolVector2Array( 0, 0, 1024, 0, 1024, 16, 0, 16 )
@@ -37,9 +35,9 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Area2D" type="Area2D" parent="BottomWall"]
+[node name="BottomWallArea" type="Area2D" parent="BottomWall"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall/BottomWallArea"]
 position = Vector2( 512, 8 )
 shape = SubResource( 3 )
 
@@ -49,7 +47,6 @@ scale = Vector2( 1, 1.47917 )
 polygon = PoolVector2Array( 8, -100, -8, -100, -8, 284, 8, 284 )
 
 [node name="LeftGoal" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 4, 300 )
 __meta__ = {
 "_edit_group_": true
@@ -59,7 +56,6 @@ __meta__ = {
 shape = SubResource( 4 )
 
 [node name="RightGoal" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 1020, 300 )
 __meta__ = {
 "_edit_group_": true

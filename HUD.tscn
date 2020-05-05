@@ -1,20 +1,29 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Assets/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://HUD.gd" type="Script" id=1]
+[ext_resource path="res://Assets/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 48
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 72
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
 
 [node name="HUD" type="Node2D"]
+script = ExtResource( 1 )
+gameTime = 180
 
 [node name="Display" type="CanvasLayer" parent="."]
 
@@ -36,9 +45,31 @@ text = "0"
 
 [node name="Clock" type="Label" parent="Display"]
 margin_left = 454.0
-margin_top = 6.0
+margin_top = 10.0
 margin_right = 570.0
-margin_bottom = 64.0
+margin_bottom = 68.0
 custom_fonts/font = SubResource( 2 )
 text = "5:00"
 
+[node name="Message" type="Label" parent="Display"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -43.0
+margin_right = 508.0
+margin_bottom = 44.0
+custom_fonts/font = SubResource( 3 )
+text = "Game Over"
+align = 1
+
+[node name="GameTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
